@@ -1,0 +1,61 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>se.oskarnordling.intellij-plugin-eclipse-dependency-plus</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Eclipse Dependency Sync Plus</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="contact@oskarnordling.se" url="https://oskarnordling.se">Oskar Nordling</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description>This plugin adds sync options to the popup menu of Eclipse .classpath files.</description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+
+    <actions>
+        <group>
+            <group id="EclipseDepsGroup"
+                   class="se.oskarnordling.intellijplugineclipsedependencyplus.action.Group"
+                   icon="AllIcons.Providers.Eclipse"
+                   popup="true"
+                   compact="true"
+                   text="Eclipse Dependency Sync">
+                <action id="EclipseDepsAdd"
+                        class="se.oskarnordling.intellijplugineclipsedependencyplus.action.AddAction"
+                        text="Add Eclipse dependencies"
+                        description="Adds eclipse dependencies to the module"
+                        icon="AllIcons.Actions.AddMulticaret">
+                </action>
+                <action id="EclipseDepsRefresh"
+                        class="se.oskarnordling.intellijplugineclipsedependencyplus.action.RefreshAction"
+                        text="Refresh Eclipse dependencies"
+                        description="Forces a refresh of the dependencies"
+                        icon="AllIcons.Actions.Refresh">
+                </action>
+                <action id="EclipseDepsRemove"
+                        class="se.oskarnordling.intellijplugineclipsedependencyplus.action.RemoveAction"
+                        text="Remove Eclipse dependencies"
+                        description="Removes eclipse dependencies from the module"
+                        icon="AllIcons.Actions.RemoveMulticaret">
+                </action>
+            </group>
+
+            <separator />
+
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first" />
+        </group>
+    </actions>
+</idea-plugin>
