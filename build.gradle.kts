@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "se.oskarnordling"
-version = "1.0.1"
+version = "SNAPSHOT"
 
 repositories {
     mavenCentral()
